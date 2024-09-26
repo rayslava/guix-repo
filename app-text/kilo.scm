@@ -1,4 +1,4 @@
-(define-module (kilo)
+(define-module (app-text kilo)
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module ((guix licenses) #:select (bsd-2))
