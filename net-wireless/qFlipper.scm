@@ -2,7 +2,11 @@
   #:use-module (guix packages)
   #:use-module (guix git-download)
   #:use-module (guix build-system qt)
-  #:use-module ((guix licenses) #:select (gpl3)))
+  #:use-module ((guix licenses) #:select (gpl3))
+  #:use-module (gnu packages qt)
+  #:use-module (gnu packages libusb)
+  #:use-module (gnu packages compression)
+  #:use-module (gnu packages pkg-config))
 
 (define-public qFlipper
   (package
@@ -34,11 +38,11 @@
     (list qtbase-5 qttools-5 qtserialport-5 qtquickcontrols-5 qtquickcontrols2-5
 	  qtsvg-5 qtdeclarative-5 libusb zlib))
    (native-inputs
-    (list pkg-config git))
+    (list pkg-config git))   
    (home-page "https://flipperzero.one/")
    (synopsis "Desktop application for Flipper Zero device management")
    (description
-    "qFlipper is a desktop application designed to interact with the Flipper Zero
-      multi-tool device. It enables firmware updates, managing applications, and
+    "qFlipper is a desktop application designed to interact with the Flipper Zero 
+      multi-tool device. It enables firmware updates, managing applications, and 
       various other device management features.")
    (license gpl3)))
