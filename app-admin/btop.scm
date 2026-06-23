@@ -64,3 +64,4 @@
    (inputs (if host-nvml (list bash-minimal) '()))
    (native-inputs (list lowdown))))
 
+btop-gpu
