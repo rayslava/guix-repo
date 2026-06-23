@@ -3,16 +3,17 @@
 ;; recipe-eval time from a list of common host locations, then exposed
 ;; via the standard wrap-program — no custom shell scripting.
 
-(use-modules
- (guix packages)
- (guix git-download)
- (guix build-system cmake)
- (guix gexp)
- ((guix licenses) #:prefix license:)
- (gnu packages admin)
- (gnu packages bash)
- (gnu packages markup)
- (srfi srfi-1))
+(define-module (app-admin btop)
+  #:use-module (guix packages)
+  #:use-module (guix git-download)
+  #:use-module (guix build-system cmake)
+  #:use-module (guix gexp)
+  #:use-module ((guix licenses) #:prefix license:)
+  #:use-module (gnu packages admin)
+  #:use-module (gnu packages bash)
+  #:use-module (gnu packages markup)
+  #:use-module (srfi srfi-1)
+  #:export (btop-gpu))
 
 (define %nvml-search-paths
   '("/usr/lib/x86_64-linux-gnu/libnvidia-ml.so.1"
@@ -63,4 +64,3 @@
    (inputs (if host-nvml (list bash-minimal) '()))
    (native-inputs (list lowdown))))
 
-btop-gpu
